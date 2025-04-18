@@ -52,4 +52,17 @@ public final class Banco {
         contasById.remove(contaIdExcluir);
     }
     
+    public void removeCliente(String clienteIdExcluir) throws BancoException {
+        Cliente cliente = clientesById.get(clienteIdExcluir);
+        if (cliente == null) {
+            throw new BancoException("D07", "Cliente não encontrado!");
+        }
+
+        for (Conta conta : cliente.getContas()) {
+            contasById.remove(conta.getId());
+        }
+
+        clientesById.remove(clienteIdExcluir);
+    }
 }
+

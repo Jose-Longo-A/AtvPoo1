@@ -102,6 +102,17 @@ public class Terminal {
                         } catch (BancoException e) {
                             System.out.println(e.getMessage());
                         }
+
+                    } else if (line.equals("11")) {
+                        System.out.print("Digite o ID do cliente: ");
+                        String id = scanner.nextLine();
+                        try {
+                            banco.removeCliente(id);
+                            System.out.println("Cliente removido com sucesso.");
+                        } catch (BancoException e) {
+                            System.out.println(e.getMessage());
+                        }
+
                     } else if (line.equals("r")) {
 
                         banco.getContas().forEach(c -> {
@@ -182,16 +193,18 @@ public class Terminal {
     
     private void printHelp() {
         String help = "";
-        help += "\n  1. criar cliente";
-        help += "\n  2. listar clientes";
-        help += "\n  3. selectionar cliente";
-        help += "\n  4. criar conta";
-        help += "\n  5. listar contas";
-        help += "\n  6. selecionar conta";
-        help += "\n  7. depositar";
-        help += "\n  8. sacar";
-        help += "\n  9. lista todas as contas";
-        help += "\n  r. render";
+        help += "\n  1. Criar cliente";
+        help += "\n  2. Listar clientes";
+        help += "\n  3. Selecionar cliente";
+        help += "\n  4. Criar conta";
+        help += "\n  5. Listar contas";
+        help += "\n  6. Selecionar conta";
+        help += "\n  7. Depositar";
+        help += "\n  8. Sacar";
+        help += "\n  9. Listar todas as contas";
+        help += "\n 10. Excluir conta";
+        help += "\n 11. Excluir cliente";
+        help += "\n  r. Render";
         System.out.println(help);
     }
 
