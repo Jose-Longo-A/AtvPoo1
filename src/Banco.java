@@ -38,5 +38,18 @@ public final class Banco {
     public String getName() {
         return name;
     }
+    public void removeConta(String contaIdExcluir) throws BancoException {
+        Conta conta = contasById.get(contaIdExcluir);
+        if (conta == null) {
+            throw new BancoException("D08", "Conta não encontrada!");
+        }
+
+        Cliente cliente = conta.getCliente();
+        if (cliente != null) {
+            cliente.removeConta(conta.getId());
+        }
+
+        contasById.remove(contaIdExcluir);
+    }
     
 }

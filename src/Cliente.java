@@ -40,6 +40,9 @@ public abstract class Cliente {
         contas.put(conta.getId(), conta);
     }
 
+    public void removeConta(String id) {
+        contas.remove(id);
+    }
     @Override
     public String toString() {
         return "[" + id + "]: " + name;

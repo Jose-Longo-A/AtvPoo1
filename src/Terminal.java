@@ -93,6 +93,15 @@ public class Terminal {
 
                         listAccounts(banco.getContas());
 
+                    } else if (line.equals("10")) {
+                        System.out.print("Digite o ID da conta: ");
+                        String id = scanner.nextLine();
+                        try {
+                            banco.removeConta(id);
+                            System.out.println("Conta removida com sucesso.");
+                        } catch (BancoException e) {
+                            System.out.println(e.getMessage());
+                        }
                     } else if (line.equals("r")) {
 
                         banco.getContas().forEach(c -> {
